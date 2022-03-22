@@ -1,0 +1,21 @@
+#contentContainer {
+    width: 550px;
+    height: 350px;
+    overflow: hidden;
+    background-color: #f946ff;
+    display: grid;
+    grid-template: "a b c d"
+                    "e f g h"
+                    "i j k l"
+                    "m n o p";
+}
+
+.taupe {
+    width: 70px;
+    height: 70px;
+    background-color: blue;
+}
+
+.taupe#Taupe5 {
+    background-color: aqua;
+}

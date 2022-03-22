@@ -1,0 +1,52 @@
+body {
+    background-color: #FFF;
+    margin: 10px 30px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#contentContainer {
+    width: 550px;
+    height: 350px;
+    overflow: hidden;
+    background-color: #f946ff;
+    display: flex;
+    align-items: center;
+}
+
+#circle {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+#move {
+    background-color: gold;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    outline: none;
+}
+#move:hover {
+    background-color: purple;
+}
+#move:active {
+    background-color: yellowgreen;
+}
+
+#playPauseMove {
+    background-color: gold;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    outline: none;
+}
+#playPauseMove:hover {
+    background-color: purple;
+}
+#playPauseMove:active {
+    background-color: yellowgreen;
+}

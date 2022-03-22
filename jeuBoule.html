@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Jeu du cercle</title>
+    <link rel="stylesheet" href="css/jeuBouleStyle.css">
+</head>
+
+<body>
+<script src="js/jeuBouleScript.js"></script>
+
+<div id="contentContainer">
+    <div id="circle"></div>
+</div>
+
+<form oninput="circle.addEventListener('click', touched)">
+    <input id="move" type="button" value="Bouger le cercle"/>
+    <input id="playPauseMove" type="button" value="Pause/Play"/>
+</form>
+Points: <h3 id="compteur">0</h3>
+
+Best: <h3 id="best">0</h3>
+
+</body>
+
+</html>
