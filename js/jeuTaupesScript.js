@@ -1,34 +1,27 @@
 class Taupe {
     constructor(id) {
         this.id = id;
-        this.minus;
+        this.diff;
         this.stopDate;
         this.startDate = Date.now();
     }
 
     apparaitre() {
-        this.isPresent = true;
-        document.getElementById("Taupe"+parseInt(this.id)).style.backgroundColor = 'red';
-    }
-
-    disparaitre() {
-        this.isPresent = false;
-    }
-
-    startTime() {
-        /*this.startDate = Date.now();*/
         document.getElementById("Taupe"+parseInt(this.id)).style.backgroundColor = 'red';
     }
 
     touched() {
         this.stopDate = Date.now();
-        this.minus = this.stopDate - this.startDate;
-        console.log(this.startDate);
-        console.log(this.stopDate);
-        console.log(this.minus);
-        this.minus = Date.now() - this.startDate;
-        score = score - this.minus;
+        this.diff = this.stopDate - this.startDate;
+        score = score - this.diff;
         updateScore();
+        document.getElementById("Taupe"+parseInt(this.id)).style.backgroundColor = 'green';
+        taupesRestantes--;
+        console.log(taupesRestantes);
+        if (score > bestScore && taupesRestantes == 0) {
+            bestScore = score;
+            document.getElementById("best").innerText = "Meilleur: "+parseInt(bestScore);
+        }
     }
 }
 
@@ -36,7 +29,7 @@ const nbTaupes = 16;
 const nbLignes = 4;
 let score = 10000;
 let bestScore = 0;
-let taupes = []
+let taupesRestantes = 0;
 let containers = []
 
 function main() {
@@ -49,7 +42,6 @@ function init() {
     // Initialisation des taupes
     for (i=0; i<nbLignes; i++) {
         for (j=0; j<nbTaupes/nbLignes; j++) {
-            /*taupes.push(new Taupe(nbLignes*i + j));*/
             document.write("<div class=\"taupe\" id=\"Taupe"+ parseInt(nbLignes*i + j) +"\"></div>");
         }
     }
@@ -61,9 +53,9 @@ function getTaupe(idT) {
 }
 
 function startGame() {
+    score = 10000;
     document.getElementById("compteur").innerText = "Points: "+parseInt(score);
     document.getElementById("best").innerText = "Meilleur: "+parseInt(bestScore);
-    taupes = [];
     jouer();
     updateScore();
 }
@@ -75,7 +67,9 @@ function jouer() {
     function doSetTimeout(time) {
 
     }
-    for (let i=0; i<10; i++) {
+    var nbTaupesASortir = 10;
+    taupesRestantes = nbTaupesASortir;
+    for (let i=0; i<nbTaupesASortir; i++) {
         setTimeout(function() {tirerTaupes(1, taupesSorties);}, i*500);
     }
 }
@@ -93,14 +87,12 @@ function tirerTaupes(nbTaupes, taupesSorties) {
         idT = Math.floor(16 * Math.random());
         if (!taupesSorties.includes(idT)) {
             tirage = true;
-            taupesSorties.push(idT);
         }
     }
     let taupe = new Taupe(idT);
-    taupes.push(taupe);
-    /*getTaupe(idT).style.backgroundColor = 'pink';*/
-    taupe.startTime();
-    getTaupe(idT).addEventListener('click', taupe.touched, {once: true});
+    taupesSorties.push(idT);
+    taupe.apparaitre();
+    getTaupe(idT).addEventListener('click', function() {taupe.touched();}, {once : true});
 }
 
 function updateScore() {
