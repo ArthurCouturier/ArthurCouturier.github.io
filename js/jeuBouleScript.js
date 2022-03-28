@@ -48,6 +48,9 @@ function touched() {
         bestVal = compteurVal;
         setBestVal();
     }
+    if (!ok) {
+        compteurVal = 0;
+    }
 }
 
 function setBestVal() {
