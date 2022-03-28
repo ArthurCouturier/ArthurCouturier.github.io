@@ -1,3 +1,7 @@
+body {
+    background-color: rgba(18, 18, 224, 0.45);
+}
+
 #contentContainer {
     width: 550px;
     height: 350px;
@@ -18,4 +22,55 @@
 
 .taupe#Taupe5 {
     background-color: aqua;
+}
+
+.button {
+    display: inline-flex;
+    height: 40px;
+    width: 150px;
+    border: 2px solid #9f119f;
+    margin: 20px 20px 20px 20px;
+    color: #9f119f;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: .8em;
+    letter-spacing: 1.5px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#startButton a {
+    color: #6c13cc;
+    text-decoration: none;
+    letter-spacing: 1px;
+    position: relative;
+    transition: all .45s ease-Out;
+}
+
+#circle {
+    width: 0%;
+    height: 0%;
+    opacity: 0;
+    line-height: 40px;
+    border-radius: 50%;
+    background: rgba(18, 18, 224, 0.45);
+    position: absolute;
+    transition: all .5s ease-Out;
+    top: 20px;
+    left: 70px;
+}
+
+#startButton:hover #circle {
+    width: 200%;
+    height: 500%;
+    opacity: 1;
+    top: -70px;
+    left: -70px;
+}
+
+#startButton:hover a {
+    color: #2D3142;
 }
