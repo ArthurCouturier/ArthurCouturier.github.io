@@ -1,5 +1,6 @@
 let xPos = 100;
-var ok = true;
+var ok = false;
+var started = false;
 
 let compteurVal = 0;
 let bestVal = 0;
@@ -8,7 +9,7 @@ var circle = document.querySelector("#circle");
 circle.addEventListener('click', touched);
 
 var animateButton = document.querySelector("#move");
-animateButton.addEventListener('click', animate, {once: true});
+animateButton.addEventListener('click', start, {once: true});
 
 var playPauseButton = document.querySelector("#playPauseMove");
 playPauseButton.addEventListener('click', pausePlayAnim);
@@ -20,6 +21,12 @@ function pausePlayAnim() {
     } else {
         ok = true;
     }
+}
+
+function start(){
+    ok = true;
+    started = true;
+    animate();
 }
 
 function animate() {
@@ -41,7 +48,9 @@ function actualizeScore() {
 }
 
 function touched() {
-    compteurVal += 1;
+    if (started && ok) {
+        compteurVal += 1;
+    }
     document.getElementById("circle").style.color = "blue";
 
     if (compteurVal > bestVal) {

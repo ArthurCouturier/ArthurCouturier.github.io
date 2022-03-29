@@ -1,17 +1,18 @@
 body {
-    background-color: #FFF;
+    background-color: #24404B;
     margin: 10px 30px 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    color: #38A391;
 }
 
 #contentContainer {
     width: 550px;
     height: 350px;
     overflow: hidden;
-    background-color: #f946ff;
+    background-color: #336E67;
     display: flex;
     align-items: center;
 }
@@ -19,34 +20,34 @@ body {
 #circle {
     width: 100px;
     height: 100px;
-    background-color: red;
+    background-color: #4BB9;
     border-radius: 50%;
 }
 
 #move {
-    background-color: gold;
+    background-color: #38A391;
     margin-top: 20px;
     font-size: 16px;
     font-weight: bold;
     outline: none;
 }
 #move:hover {
-    background-color: purple;
+    background-color: #4BB99A;
 }
 #move:active {
-    background-color: yellowgreen;
+    background-color: #8EC3B8;
 }
 
 #playPauseMove {
-    background-color: gold;
+    background-color: #38A391;
     margin-top: 20px;
     font-size: 16px;
     font-weight: bold;
     outline: none;
 }
 #playPauseMove:hover {
-    background-color: purple;
+    background-color: #4BB99A;
 }
 #playPauseMove:active {
-    background-color: yellowgreen;
+    background-color: #38A391;
 }
